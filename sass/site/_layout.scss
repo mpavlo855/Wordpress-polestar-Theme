@@ -1,0 +1,107 @@
+.polestar-container {
+	margin: 0 auto;
+	max-width: 1190px; // 1140px container.
+	padding: 0 25px;
+	position: relative;
+	width: 100%;
+
+	.full-width & {
+		max-width: none;
+	}
+}
+
+.site-content {
+	@include clearfix;
+	overflow: hidden;
+}
+
+// Content area without sidebar.
+.content-area {
+	width: 100%;
+}
+
+// Content area with sidebar.
+.sidebar .content-area {
+	float: left;
+	width: 70%;
+
+	@at-root .sidebar-left#{&} {
+		float: right;
+	}
+
+	@media (max-width: 768px) {
+		width: 100%;
+	}
+}
+
+// No Sidebar and Stripped page layout setting.
+.page-layout-no-sidebar .site-content .content-area,
+.page-layout-stripped .site-content .content-area {
+	float: none;
+	width: 100%;
+}
+
+// Full Width page layout setting.
+.page-layout-full-width-no-sidebar {
+
+	.site-content .content-area {
+		float: none;
+		width: 100%;
+	}
+
+	.site-content .polestar-container {
+		max-width: none;
+		padding: 0;
+	}
+}
+
+// Constrained layout page setting.
+.page-layout-constrained .content-area {
+	float: none;
+	margin: 0 auto;
+	max-width: 870px;
+	width: 100%;
+}
+
+// Sidebar.
+.widget-area {
+	float: right;
+	padding-left: 4%;
+	width: 30%;
+
+	.sidebar-left & {
+		float: left;
+		padding-right: 4%;
+		padding-left: 0;
+	}
+
+	@media (max-width: 768px) {
+		border-top: 1px solid $color__background-hr;
+		margin-top: 50px;
+		padding: 50px 0 0;
+		width: 100%;
+	}
+}
+
+// Block Editor Wide and Full widths.
+.page-layout-no-sidebar {
+
+	.alignfull {
+		margin-left: calc(50% - 50vw);
+		width: 100vw;
+	}
+
+	@media (min-width: calc(1140px + 200px)) {
+
+		.alignwide {
+			left: -100px;
+			position: relative;
+			width: calc(100% + 20vw);
+		}
+	}
+
+	.alignfull .wp-block-group__inner-container {
+		margin: auto;
+		max-width: 1140px;
+	}
+}

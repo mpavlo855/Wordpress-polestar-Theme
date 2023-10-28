@@ -1,0 +1,271 @@
+/*--------------------------------------------------------------
+## Active Product Filters Widget
+--------------------------------------------------------------*/
+.widget.widget_layered_nav_filters {
+
+	.chosen a {
+		padding-left: 20px;
+		position: relative;
+
+		&:before {
+			color: $color__accent;
+			content: "\e900";
+			display: inline-block;
+			font-family: $font__icon;
+			font-size: 15px;
+			left: 0;
+			line-height: 1;
+			position: absolute;
+			top: 3px;
+		}
+
+		&:hover {
+			color: $color__text-dark;
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+## - Cart and Product List Widget
+--------------------------------------------------------------*/
+.cart_list,
+.product_list_widget {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		border-bottom: 1px solid $color__background-hr;
+		line-height: 2;
+		list-style: none;
+		margin: 0;
+		overflow: auto;
+		padding: 15px 0;
+		position: relative;
+		width: 100%;
+
+		&:first-of-type {
+			margin-top: -15px;
+		}
+
+		a {
+			color: $color__text-medium;
+			display: block;
+			font-weight: 600;
+			line-height: normal;
+
+			&:hover {
+				color: $color__accent;
+			}
+		}
+
+		.product-title {
+			font-size: 0.933rem;
+		}
+
+		ins {
+			background: none;
+		}
+
+		.star-rating {
+			margin-top: 4px;
+		}
+
+		.amount,
+		.quantity,
+		.reviewer {
+			font-size: 0.867rem
+		}
+
+		img {
+			float: right;
+			margin-left: 4px;
+			width: 65px;
+		}
+	}
+}
+
+.widget_shopping_cart {
+
+	.cart_list {
+
+		li {
+			padding-left: 25px;
+
+			&:last-of-type {
+				border-bottom: 0;
+			}
+
+			.remove {
+				font-size: 16px;
+				left: 0;
+				position: absolute;
+				top: 22px;
+			}
+		}
+	}
+
+	.total {
+		border: 1px solid $color__background-hr;
+		border-right: 0;
+		border-left: 0;
+		margin-bottom: 20px;
+		padding: 10px 0;
+
+		strong {
+			font-weight: 600;
+		}
+	}
+
+	.buttons {
+		text-align: center;
+
+		a {
+			color: #fff;
+			display: inline-block;
+			font-weight: normal;
+
+			&.button {
+				font-size: 13px;
+				padding: 10px 19px;
+			}
+
+			&:first-of-type {
+				background: $color__background-element;
+				color: $color__text-medium;
+
+				&:hover {
+					background: $color__accent;
+					color: #fff;
+				}
+			}
+
+			&.checkout {
+				margin-left: 10px;
+			}
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+## Product Categories Widget
+--------------------------------------------------------------*/
+.widget_product_categories .product-categories,
+.woocommerce-widget-layered-nav-list {
+
+	font-size: 0.933rem;
+	margin: 0;
+
+	li {
+		color: $color__text-light;
+		list-style: none;
+
+		a {
+			color: $color__text-dark;
+			display: inline-block;
+			margin-bottom: 8px;
+		}
+
+		span {
+			color: $color__text-light;
+		}
+
+		.children {
+			margin-left: 12px;
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+## - Price Filter Widget
+--------------------------------------------------------------*/
+.widget_price_filter {
+
+	.ui-slider {
+		background: $color__background-element;
+		height: 3px;
+		margin: 21px 3.5px 26px;
+		position: relative;
+
+		.ui-slider-range {
+			background: $color__accent;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			z-index: 1;
+		}
+
+		.ui-slider-handle {
+			background: $color__accent;
+			cursor: ew-resize;
+			height: 15px;
+			margin-left: -3.5px;
+			outline: none;
+			position: absolute;
+			top: -6px;
+			width: 7px;
+			z-index: 2;
+		}
+	}
+
+	.price_slider_amount {
+		overflow: auto;
+
+		.price_label {
+			font-weight: normal;
+			padding-top: 10px;
+
+			span {
+				font-weight: bold;
+			}
+		}
+
+		.button {
+			background: $color__background-element;
+			color: $color__text-medium;
+			float: right;
+
+			&:hover {
+				background: $color__accent;
+			}
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+## - Filter Products by Rating Widget
+--------------------------------------------------------------*/
+.widget.widget_rating_filter .wc-layered-nav-rating a {
+	align-items: center;
+	color: $color__text-light;
+	display: flex;
+
+	.star-rating {
+		display: inline-block;
+		margin-right: 3px;
+	}
+}
+
+/*--------------------------------------------------------------
+## - Product Tag Cloud Widget
+--------------------------------------------------------------*/
+.widget.widget_product_tag_cloud {
+	margin-right: -6px;
+
+	.tagcloud a {
+		background: $color__background-element;
+		border-radius: 2px;
+		color: $color__text-medium;
+		display: inline-block;
+		font-size: 13px;
+		line-height: normal;
+		margin: 0 6px 8px 0;
+		padding: 6px 10px;
+		transition: .3s;
+
+		&:hover {
+			background: $color__accent;
+			color: #fff;
+		}
+	}
+}

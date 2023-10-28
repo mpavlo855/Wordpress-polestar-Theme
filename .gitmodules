@@ -1,0 +1,9 @@
+[submodule "build"]
+	path = build
+	url = git@github.com:Misplon/gulp-theme-build.git
+[submodule "inc/customizer-library"]
+	path = inc/customizer-library
+	url = git@github.com:purothemes/customizer-library.git
+[submodule "inc/extras"]
+	path = inc/extras
+	url = git@github.com:purothemes/extras.git

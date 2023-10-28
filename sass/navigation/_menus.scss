@@ -1,0 +1,849 @@
+.main-navigation {
+	text-align: right;
+
+	&.widget_nav_menu {
+		text-align: initial;
+	}
+
+	> div {
+		display: inline-block;
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		.sub-menu,
+		.children {
+			background: #fff;
+			border: 1px solid $color__background-hr;
+			box-shadow: 0 1px 1px rgba(0, 0, 0, .075);
+			opacity: 0;
+			position: absolute;
+			text-align: left;
+			top: 100%;
+			transform-origin: center top;
+			transform: scale(0.95);
+			transition: all 0.15s ease-in;
+			visibility: hidden;
+			z-index: 99999;
+
+			ul {
+				left: 100%;
+				top: -1px;
+				transform-origin: left center;
+			}
+
+			li {
+				margin: 0;
+				min-width: 100%;
+				padding: 0;
+				width: max-content;
+
+				&:hover > ul,
+				&.focus > ul {
+					left: 100%;
+				}
+
+				a {
+					border-bottom: 1px solid $color__background-hr;
+					font-size: 13px;
+					margin: 0 25px;
+					max-width: 100%;
+					outline: none;
+					padding: 10px 0;
+					white-space: nowrap;
+
+					&:not([href]) {
+ 						cursor: pointer;
+					}
+				}
+
+				&:first-of-type > a {
+					padding-top: 15px;
+				}
+
+				&:last-of-type > a {
+					border-bottom: none;
+					padding-bottom: 15px;
+				}
+
+				&:only-of-type > a {
+					padding: 15px 0;
+				}
+			}
+		}
+
+		// If a class of 'left' is added to a menu item, break drop down menu items to the left.
+		.left {
+
+			.sub-menu,
+			.children {
+				right: 0;
+
+				ul {
+					left: initial;
+					left: auto;
+					right: 100%;
+				}
+
+				li {
+
+					&:hover > ul,
+					&.focus > ul {
+						left: initial;
+						left: auto;
+						right: 100%;
+					}
+				}
+
+				.menu-item-has-children,
+				.page_item_has_children {
+
+					> a:before {
+						content: "\f053";
+						font-family: $font__icon;
+						font-size: 9px;
+						line-height: normal;
+						padding-right: 12px;
+						position: relative;
+						top: 0;
+						transform: rotate(45deg);
+					}
+
+					> a:after {
+						content: none;
+					}
+				}
+			}
+		}
+
+		// If a class of 'left' is added to a sub-menu item, break drop down menu items to the left.
+		.sub-menu .left {
+
+			&.menu-item-has-children,
+			&.page_item_has_children {
+
+				> a:before {
+					content: "\f053";
+					font-family: $font__icon;
+					font-size: 9px;
+					line-height: normal;
+					padding-right: 12px;
+					position: relative;
+					top: 0;
+					transform: rotate(45deg);
+				}
+
+				> a:after {
+					content: none;
+				}
+			}
+
+			.sub-menu,
+			.children {
+				left: initial;
+				left: auto;
+				right: 100%;
+
+				li {
+
+					&:hover > ul,
+					&.focus > ul {
+						left: initial;
+						left: auto;
+						right: 100%;
+					}
+				}
+			}
+		}
+
+		// If a class of .menu-button is added to a menu item, style it as a button.
+		.menu-button {
+			margin-bottom: 0;
+			padding-bottom: 0;
+
+			a {
+				background: $color__accent;
+				border-radius: 2px;
+				color: #fff;
+				display: inline-block;
+				font-size: .95em;
+				letter-spacing: .5px;
+				line-height: normal;
+				padding: 6.5px 13px 5.5px;
+
+				&:hover {
+					background-color: rgba(77, 143, 251, .8);
+					color: #fff;
+				}
+			}
+		}
+
+		@at-root body:not(.ios) & {
+
+			li:hover > ul,
+			li.focus > ul {
+				opacity: 1;
+				transform: scale(1);
+				visibility: visible;
+			}
+		}
+
+		li:hover > ul,
+		li.focus > ul {
+			opacity: 1;
+			transform: scale(1);
+			visibility: visible;
+		}
+
+		.menu-item-has-children,
+		.page_item_has_children {
+
+			> a:after {
+				content: "\f078";
+				font-family: $font__icon;
+				font-size: 10px;
+				line-height: normal;
+				padding-left: 8px;
+				position: relative;
+				top: 2px;
+			}
+		}
+
+		.sub-menu,
+		.children {
+
+			.menu-item-has-children,
+			.page_item_has_children {
+
+				> a:after {
+					content: "\f054";
+					font-family: $font__icon;
+					font-size: 9px;
+					line-height: normal;
+					padding-left: 12px;
+					position: relative;
+					top: 0;
+				}
+			}
+		}
+	}
+
+	li {
+		display: inline-block;
+		font-family: $font__headings;
+		font-size: 14px;
+		line-height: normal;
+		margin: 0 30px -10px 0; // Total right margin is 35px. 5px additional space per item due to inline-block.
+		padding: 0 0 10px;
+		position: relative;
+		text-align: left;
+
+		&:last-of-type {
+			margin-right: 0;
+		}
+
+		a {
+			color: $color__text-dark;
+			display: block;
+			font-weight: 600;
+		}
+
+		&:hover > a,
+		&.focus > a {
+			color: $color__text-medium;
+		}
+	}
+
+	.current > a,
+	.current_page_item > a,
+	.current-menu-item > a,
+	.current_page_ancestor > a,
+	.current-menu-ancestor > a {
+		color: $color__accent;
+	}
+
+	.search-icon {
+		background: none;
+		border-radius: 0;
+		cursor: pointer;
+		margin-left: 27px;
+		padding: 0;
+		position: relative;
+		top: 3px;
+
+		svg {
+			height: 16px;
+			overflow: visible;
+			width: 16px;
+
+			path {
+				fill: $color__text-dark;
+				transition: .3s;
+
+				.overlap-light .site-header:not(.stuck) & {
+					fill: #fff;
+				}
+
+				.overlap-dark .site-header:not(.stuck) & {
+					fill: #2d2d2d;
+				}
+			}
+
+			&:hover {
+
+				path {
+					fill: $color__text-medium;
+
+					.overlap-light & {
+						fill: rgba(255, 255, 255, .8);
+					}
+
+					.overlap-dark & {
+						fill: rgba(45, 45, 45, .8);
+					}
+				}
+			}
+		}
+	}
+
+	// First level items.
+	div:not(.widget_shopping_cart_content) > ul > li {
+
+		// Overlap.
+		.overlap-light .site-header:not(.stuck) &:not([class*="current"]) > a {
+			color: #fff;
+		}
+
+		.overlap-dark .site-header:not(.stuck) &:not([class*="current"]) > a {
+			color: #2d2d2d;
+		}
+
+		&:hover > a,
+		&.focus > a {
+
+			.overlap-light .site-header:not(.stuck) & {
+				color: rgba(255, 255, 255, .8);
+			}
+
+			.overlap-dark .site-header:not(.stuck) & {
+				color: rgba(45, 45, 45, .8);
+			}
+		}
+	}
+
+	// Max Mega menu
+	#mega-menu-wrap-primary {
+		display: inline-block;
+
+		.mega-sub-menu {
+
+			li {
+				min-width: auto;
+			}
+		}
+
+		ul ul a {
+			white-space: normal;
+			width: auto !important;
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+## Mobile Menu
+--------------------------------------------------------------*/
+#mobile-menu-button {
+	display: none;
+	height: 30px;
+	padding: 0;
+	position: relative;
+	right: -5px;
+	top: 6px;
+	transform: rotate(0deg);
+	transition: all .5s ease-in-out;
+	width: 36px;
+
+	span {
+		background: $color__text-dark;
+		border-radius: 5px;
+		display: block;
+		height: 2px;
+		left: 8px;
+		max-width: 20px;
+		opacity: 1;
+		position: absolute;
+		transform: rotate(0deg);
+		transition: .25s ease-in-out;
+		width: 100%;
+
+		.overlap-light .site-header:not(.stuck) & {
+			background: #fff;
+		}
+
+		.overlap-dark .site-header:not(.stuck) & {
+			background: #2d2d2d;
+		}
+
+		&:nth-child(1) {
+			top: 8px;
+		}
+
+		&:nth-child(2),
+		&:nth-child(3) {
+			top: 14px;
+		}
+
+		&:nth-child(4) {
+			top: 20px;
+		}
+	}
+
+	&.to-close span {
+
+		&:nth-child(1) {
+			left: 50%;
+			top: 14px;
+			width: 0;
+		}
+
+		&:nth-child(2) {
+			transform: rotate(45deg);
+		}
+
+		&:nth-child(3) {
+			transform: rotate(-45deg);
+		}
+
+		&:nth-child(4) {
+			left: 50%;
+			top: 14px;
+			width: 0;
+		}
+	}
+}
+
+#mobile-navigation {
+	-webkit-overflow-scrolling: touch;
+	background: #fff;
+	border-bottom: 1px solid $color__background-hr;
+	left: 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	padding: 0 25px 25px;
+	position: absolute;
+	top: 100%;
+	width: 100%;
+	z-index: 10;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		li {
+			font-family: $font__headings;
+			font-size: 14px;
+			line-height: 3;
+			position: relative;
+			width: 100%;
+
+			a {
+				border-bottom: 1px solid $color__background-hr;
+				color: $color__text-dark;
+				display: block;
+				font-weight: 600;
+				text-decoration: none;
+				width: 100% !important;
+
+				&:hover {
+					color: $color__text-medium;
+				}
+			}
+
+			&.menu-item-has-children > a {
+				padding-right: 40px;
+			}
+
+			.dropdown-toggle {
+				background: transparent;
+				color: $color__text-dark;
+				font-size: 12px;
+				padding: 14px;
+				position: absolute;
+				right: 0;
+				top: 0;
+				transition: none;
+
+				&:hover {
+					color: $color__text-medium;
+					box-shadow: none;
+				}
+
+				&.toggle-open {
+					transform: rotate(-180deg);
+				}
+			}
+		}
+
+		ul {
+			display: none;
+			margin: 0;
+			padding: 0;
+
+			ul {
+				display: none;
+			}
+		}
+	}
+
+	> ul {
+		margin-bottom: 15px;
+	}
+
+	.search-form {
+		margin-bottom: 15px;
+		width: 100%;
+
+		&[style] {
+			margin-top: 0 !important;
+		}
+
+		input[type="search"] {
+			width: 100%;
+		}
+	}
+}
+
+$sel: '';
+@for $i from 1 through 5 {
+	$sel: if($i == 1, "#mobile-navigation", selector-nest($sel, "ul")) !global;
+
+	#{$sel} {
+		ul ul li a {
+			padding-left: 25px * $i;
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+## Posts, Post and Comment Navigation
+--------------------------------------------------------------*/
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+	@include clearfix;
+	margin: 0 0 50px;
+	width: 100%;
+
+	.nav-previous {
+		float: left;
+		text-align: left;
+		width: 50%;
+
+		@media (max-width: 768px) {
+			float: none;
+			margin-bottom: 25px;
+		}
+	}
+
+	.nav-next {
+		float: right;
+		text-align: right;
+		width: 50%;
+
+		@media (max-width: 768px) {
+			float: none;
+			text-align: left;
+		}
+	}
+}
+
+.pagination {
+	text-align: center;
+
+	.page-numbers {
+		@extend .button;
+		background: $color__background-element;
+		color: $color__text-medium;
+		display: inline-block;
+		margin-right: 3px;
+		padding-left: 16px;
+		padding-right: 16px;
+
+		&:visited {
+			color: $color__text-medium;
+		}
+
+		&:hover,
+		&:focus {
+			background: $color__accent;
+			color: #fff;
+		}
+
+		&.next,
+		&.prev {
+			font-size: 14px;
+			line-height: 1.3;
+			padding: 11px 13px;
+
+			span:before {
+				position: relative;
+				top: 1px;
+			}
+		}
+
+		&.dots {
+			background: none;
+			font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+			font-size: 13px;
+			padding-left: 0;
+			padding-right: 0;
+
+			&:hover {
+				background: none;
+				box-shadow: none;
+				color: $color__text-medium;
+			}
+		}
+	}
+
+	.current {
+		background: $color__accent;
+		color: #fff;
+	}
+}
+
+.site-content .post-navigation {
+	font-size: 16px;
+
+	a {
+		color: $color__text-medium;
+		font-weight: 600;
+		font-weight: bold;
+
+		&:hover {
+			color: $color__accent;
+		}
+
+		.sub-title {
+			border-bottom: 2px solid $color__background-hr;
+			color: $color__text-light;
+			display: inline-block;
+			font-size: 14px;
+			font-weight: normal;
+			line-height: normal;
+			margin-bottom: 10px;
+			padding-bottom: 3px;
+			text-transform: uppercase;
+		}
+
+		div {
+			line-height: normal;
+		}
+	}
+}
+
+.comment-navigation {
+	margin: 25px 0;
+	text-transform: capitalize;
+
+	span {
+		font-size: 13px;
+		position: relative;
+		right: 0;
+		top: 0;
+
+		&.icon-long-arrow-left {
+			padding-right: 3px;
+		}
+
+		&.icon-long-arrow-right {
+			padding-left: 3px;
+		}
+	}
+
+	a {
+		color: $color__text-dark;
+		font-weight: 600;
+		font-weight: bold;
+
+		&:hover {
+			color: $color__accent;
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+## Footer Menu
+--------------------------------------------------------------*/
+.footer-menu {
+	float: right;
+	font-size: 13px;
+	text-align: right;
+	width: 70%;
+
+	@media (max-width: 768px) {
+		float: none;
+		padding-top: 15px;
+		text-align: center;
+		width: 100%;
+	}
+
+	.menu {
+		list-style: none;
+		margin: 0;
+
+		li {
+			display: inline-block;
+			font-size: 13px;
+			margin-right: 30px;
+			vertical-align: middle;
+
+			&:last-of-type {
+				margin-right: 0;
+
+				a {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+## Footer Menu Social Icons
+--------------------------------------------------------------*/
+.footer-menu {
+
+	a[href*="behance.net"], a[href*="codepen.io"], a[href*="delicious.com"], a[href*="deviantart.com"], a[href*="digg.com"], a[href*="dribbble.com"], a[href*="facebook.com"], a[href*="flickr.com"], a[href*="foursquare.com"], a[href*="github.com"], a[href*="plus.google.com"], a[href*="instagram.com"], a[href*="linkedin.com"], a[href*="pinterest.com"], a[href*="reddit.com"], a[href*="soundcloud.com"], a[href*="stackexchange.com"], a[href*="stackoverflow.com"], a[href*="tumblr.com"], a[href*="twitter.com"], a[href*="vimeo.com"], a[href*="vine.co"], a[href*="vk.com"], a[href*="weibo.com"], a[href*="wordpress.com"], a[href*="xing"], a[href*="yelp"], a[href*="youtube.com"] {		
+		display: block;
+		font-size: 0;
+		margin-right: -16px;
+		text-align: center;
+
+		&:before {
+			font-family: $font__icon;
+			font-size: 18px;
+			transition: .2s;
+		}
+	}
+
+	a[href*="behance.net"]:before {
+		content: "\f1b4";
+	}
+
+	a[href*="codepen.io"]:before {
+		content: "\f1cb";
+	}
+
+	a[href*="delicious.com"]:before {
+		content: "\f1a5";
+	}
+
+	a[href*="deviantart.com"]:before {
+		content: "\f1bd";
+	}
+
+	a[href*="digg.com"]:before {
+		content: "\f1a6";
+	}
+
+	a[href*="dribbble.com"]:before {
+		content: "\f17d";
+	}
+
+	a[href*="facebook.com"]:before {
+		content: "\f09a";
+	}
+
+	a[href*="flickr.com"]:before {
+		content: "\f16e";
+	}
+
+	a[href*="foursquare.com"]:before {
+		content: "\f180";
+	}
+
+	a[href*="github.com"]:before {
+		content: "\f09b";
+	}
+
+	a[href*="plus.google.com"]:before {
+		content: "\f0d5";
+	}
+
+	a[href*="instagram.com"]:before {
+		content: "\f16d";
+	}
+
+	a[href*="linkedin.com"]:before {
+		content: "\f0e1";
+	}
+
+	a[href*="pinterest.com"]:before {
+		content: "\f0d2";
+	}
+
+	a[href*="reddit.com"]:before {
+		content: "\f1a1";
+	}
+
+	a[href*="soundcloud.com"]:before {
+		content: "\f1be";
+	}
+
+	a[href*="stackexchange.com"]:before {
+		content: "\f18d";
+	}
+
+	a[href*="stackoverflow.com"]:before {
+		content: "\f16c";
+	}
+
+	a[href*="tumblr.com"]:before {
+		content: "\f173";
+	}
+
+	a[href*="twitter.com"]:before {
+		content: "\f099";
+	}
+
+	a[href*="vimeo.com"]:before {
+		content: "\f194";
+	}
+
+	a[href*="vine.co"]:before {
+		content: "\f1ca";
+	}
+
+	a[href*="vk.com"]:before {
+		content: "\f189";
+	}
+
+	a[href*="weibo.com"]:before {
+		content: "\f18a";
+	}
+
+	a[href*="wordpress.com"]:before {
+		content: "\f19a";
+	}	
+
+	a[href*="xing"]:before {
+		content: "\f168";
+	}
+
+	a[href*="yelp.com"]:before {
+		content: "\f1e9";
+	}
+
+	a[href*="youtube.com"]:before {
+		content: "\f16a";
+	}
+}

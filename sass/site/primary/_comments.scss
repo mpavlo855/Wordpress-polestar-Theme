@@ -1,0 +1,259 @@
+.comment-list {
+	margin: 0 0 30px;
+	padding: 0;
+
+	ol.children {
+		margin: 0;
+	}
+
+	@media (min-width: 1025px) {
+
+		li .comment {
+			margin-left: 80px;
+		}
+	}
+
+	.comment,
+	.pingback {
+		color: $color__text-medium;
+		display: block;
+
+		.comment-box {
+			border-bottom: 1px solid $color__background-hr;
+			padding: 25px 0;
+		}
+
+		@media (min-width: 481px) {
+
+			.comment-container {
+				margin-left: 80px;
+			}
+		}
+
+		.avatar-container {
+			float: left;
+
+			@media (max-width: 480px) {
+				display: none;
+			}
+
+			img {
+				display: block;
+				border-radius: 50%;
+			}
+		}
+
+		.info {
+			line-height: normal;
+			padding-bottom: 15px;
+		}
+
+		.author {
+			color: $color__text-dark;
+			font-size: 14px;
+			font-weight: 600;
+
+			a {
+				color: $color__text-dark;
+				text-decoration: none;
+
+				&:hover {
+					color: $color__text-medium;
+				}
+			}
+
+			@at-root .comment-list .bypostauthor .author:before {
+				content: "\f040";
+				font-family: $font__icon;
+				font-size: 14px;
+				margin-right: 5px;
+			}
+		}
+
+		.date {
+			color: $color__text-light;
+			font-size: 13px;
+		}
+
+		.comment-content {
+			font-size: 14px;
+
+			p {
+				margin-bottom: 15px;
+			}
+
+			a {
+				word-wrap: break-word;
+			}
+
+			.comment-awaiting-moderation {
+				font-weight: bold;
+				font-weight: 600;
+			}
+		}
+
+		.comment-reply-link {
+			color: $color__text-dark;
+			font-size: 12px;
+			font-weight: bold;
+			font-weight: 600;
+			line-height: normal;
+			text-transform: uppercase;
+
+			&:hover {
+				color: $color__accent;
+			}
+		}
+	}
+
+	.pingback {
+		list-style: none;
+
+		.comment-container {
+			list-style: none;
+			margin-left: 0;
+		}
+	}
+}
+
+.comments-title, 
+.comment-reply-title {
+	@extend .underline;
+	font-size: 16px;
+	margin-bottom: 0;
+}
+
+.comment-respond {
+	margin-top: 30px;
+}
+
+.comment-reply-title {
+	margin-bottom: 15px;
+
+	#cancel-comment-reply-link {
+		color: $color__text-light;
+		font-family: $font__main;
+		font-size: 13px;
+		margin-left: .5em;
+		text-transform: none;
+
+		&:hover {
+			color: $color__accent;
+		}
+	}
+}
+
+#commentform {
+
+	p {
+		line-height: normal;
+		margin-bottom: 25px;
+	}
+
+	label {
+		display: block;
+		line-height: normal;
+		margin-bottom: 8px;
+		text-transform: capitalize;
+	}
+
+	textarea {
+		width: 100%;
+	}
+
+	.comment-form-author,
+	.comment-form-email,
+	.comment-form-url {
+		box-sizing: border-box;
+		float: left;
+		width: 31%;
+
+		@media (max-width: 768px) {
+			width: 100%;
+		}
+
+		input {
+			width: 100%;
+		}
+	}
+
+	.comment-form-email {
+		margin: 0 3.5% 25px;
+
+		@media (max-width: 768px) {
+			margin: 0 0 25px;
+		}
+	}
+
+	.comment-notes,
+	.logged-in-as {
+		font-size: 13px;
+		line-height: 1.6875;
+
+		a {
+			color: $color__text-medium;
+			text-decoration: none;
+
+			&:hover {
+				color: $color__accent;
+			}
+		}
+	}
+
+	.comment-form-cookies-consent {
+		align-items: center;
+		clear: both;
+		display: flex;
+		margin: 0 0 8px;
+
+		input {
+			line-height: 1;
+			margin-right: 5px;
+		}
+
+		label {
+			display: inline-block;
+			font-weight: normal;
+			margin-bottom: 0;
+		}
+	}
+
+	.form-submit {
+		margin: 25px 0 0;
+		clear: both;
+	}
+
+	// Jetpack Subscriptions.
+	.comment-subscription-form {
+		display: block;
+		clear: both;
+		margin: 0 0 8px;
+		overflow: auto;
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+
+		input {
+			margin-right: 0;
+			position: relative;
+			top: -1px;
+		}
+
+		label {
+			font-weight: normal;
+		}
+	}
+}
+
+.no-comments {
+	font-size: 14px;
+	font-weight: bold;
+	font-weight: 600;
+	margin: 0;
+}
+
+.commentform-error {
+	font-size: 14px;
+	margin: 0 0 25px;
+}

@@ -1,0 +1,22 @@
+@mixin loader() {
+	&::before {
+		-webkit-animation: spin 1s ease-in-out infinite;
+		-moz-animation: spin 1s ease-in-out infinite;
+		animation: spin 1s ease-in-out infinite;
+		background: url('woocommerce/images/loader.svg') center center;
+		background-size: cover;
+		color: rgba(#000, 0.75);
+		content: '';
+		font-size: 2em;
+		height: 1em;
+		display: block;
+		left: 50%;
+		line-height: 1;
+		margin-left: -0.5em;
+		margin-top: -0.5em;
+		position: absolute;
+		text-align: center;
+		top: 50%;
+		width: 1em;
+	}
+}

@@ -1,0 +1,176 @@
+.widget-area .widget,
+.site-footer .widget {
+	margin: 0 0 45px;
+
+	.widget-title {
+		@extend .underline;
+		font-size: 16px;
+		margin: 0 0 20px;
+		text-transform: uppercase;
+
+		// Set the font size of elements below the widget title to 14px.
+		~ * {
+			font-size: 14px;
+		}
+	}
+
+	a {
+		color: $color__text-medium;
+
+		&:hover {
+			color: $color__accent;
+		}
+	}
+
+	.button {
+		color: #fff;
+		
+		&:hover {
+			color: #fff;
+		}
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+
+		li {
+			line-height: 2;
+		}
+	}
+
+	input {
+		font-size: 14px;
+	}
+}
+
+/*--------------------------------------------------------------
+## - Calendar Widget
+--------------------------------------------------------------*/
+.widget #wp-calendar {
+	border: 0;
+	margin: 0;
+
+	caption {
+		color: $color__text-dark;
+		font-size: 14px;
+		font-weight: bold;
+		font-weight: 600;
+		text-align: left;
+	}
+
+	tr:nth-child(2n+2) {
+		background: none;
+	}
+
+	th,
+	td {
+		border: 0;
+		padding: 0;
+	}
+
+	thead {
+		border-bottom: 2px solid $color__background-hr;
+
+		tr {
+			background: none;
+		}
+
+		th {
+			padding: 8px 0;
+			text-align: center;
+		}
+	}
+
+	tbody {
+		font-size: 13px;
+
+		.pad {
+			background: none;
+		}
+
+		tr:first-of-type td {
+			padding-top: 8px;
+		}
+
+		td {
+			padding-bottom: 8px;
+			text-align: center;
+		}
+	}
+}
+
+.calendar_wrap .wp-calendar-nav {
+	font-size: 13px;
+
+	.wp-calendar-nav-prev,
+	.wp-calendar-nav-next {
+		display: inline-block;
+		padding-top: 4px;
+		width: 48%;
+
+		a {
+			color: $color__text-dark;
+			margin-left: 10px;
+
+			&:hover {
+				color: $color__accent;
+			}
+		}
+	}
+
+	.wp-calendar-nav-next {
+		text-align: right;
+
+		a {
+			margin: 0 10px 0 0;
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+## Archives and Categories Widgets
+--------------------------------------------------------------*/
+.widget_archive,
+.widget_categories {
+
+	li {
+		color: $color__text-light;
+
+		a {
+			color: $color__text-dark;
+			display: inline-block;
+			margin-bottom: 8px;
+		}
+
+		span {
+			color: $color__text-light;
+		}
+
+		.children {
+			margin-left: 12px;
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+## - Search Widget
+--------------------------------------------------------------*/
+.widget .search-form {
+	width: 100%;
+
+	input[type="search"] {
+		width: 100%;
+		
+		@at-root #secondary & {
+			min-width: 0;
+		}
+	}
+}
+
+/*--------------------------------------------------------------
+## - Tag Cloud Widget
+--------------------------------------------------------------*/
+#page .widget_tag_cloud {
+	@extend .tags-links;
+}
